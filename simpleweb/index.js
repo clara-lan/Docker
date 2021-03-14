@@ -4,7 +4,7 @@ const app = express();
 
 // everytime visit the home route, it will send "hi there"
 app.get('/', (req, res) => {
-  res.send('hi there');
+  res.send('Bye there');
 });
 
 app.listen(8080, () => {
