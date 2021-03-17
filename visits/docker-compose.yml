@@ -1,0 +1,11 @@
+# use yml to enable communication between services without port mapping or extra connection ops
+# also see index.js line5  and line9for connection address setting
+version: '3'
+services: # create redis and node services
+  redis-server:
+    image: 'redis'  #use redis image to create the redis server
+  node-app:
+    build: . #in current dir to build the node app
+    ports: 
+      # - in yml is used to specify an array
+      - "8081:8081" # map port local to container
