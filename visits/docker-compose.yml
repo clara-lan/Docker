@@ -5,6 +5,7 @@ services: # create redis and node services
   redis-server:
     image: 'redis'  #use redis image to create the redis server
   node-app:
+    restart: always #always restart node-app, also applied to redis-server if need
     build: . #in current dir to build the node app
     ports: 
       # - in yml is used to specify an array

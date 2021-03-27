@@ -1,5 +1,6 @@
 const express = require('express');
 const redis = require('redis');
+const process = require('process');
 
 const app = express();
 const client = redis.createClient({
@@ -13,6 +14,8 @@ client.set('visits', 0); // ensure the init count of visits is 0
 
 
 app.get('/', (req, res) => {
+  process.exit(0); //exit the program each time when request happens, exit code 0 means everything is ok; code 1,2,3...menas sth. went wrong;
+
   client.get('visits', (err, visits) => {
     // res.send, send the number of visits back to our request.
     // visists come from redis, as a string
