@@ -1,0 +1,13 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+
+before_install:
+#build docker before run this image
+# tagname convention:gitId/ name of git repo(this tag will only be used in travisCI so nomatter what it's called just a good convention)
+  - docker build -t  clara-lan/Docker -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true clara-lan/Docker npm run test

@@ -1,4 +1,5 @@
 # multi steps build(two blocks using FROM statement)
+# no dependencies for this image. for product version and travisCI test
 # base image -  node:alpine
 FROM node:alpine
 WORKDIR '/app'
